@@ -5,7 +5,6 @@ import threading
 import time
 from pathlib import Path
 from mitmproxy import http
-from mitmproxy.utils import asyncio_utils
 import yaml
 from aegis.detector import detector_from_config
 
@@ -24,7 +23,7 @@ class AegisAddon:
         self._telemetry_lock = threading.Lock()
 
     def running(self):
-        self._heartbeat_task = asyncio_utils.create_task(self._beat(), name="aegis-heartbeat", keep_ref=True)
+        self._heartbeat_task = asyncio.create_task(self._beat(), name="aegis-heartbeat")
 
     async def _beat(self):
         while True:

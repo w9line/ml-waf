@@ -57,7 +57,7 @@ The lab uses a dedicated Docker bridge and a separate client. Services share a n
 ./tests/observe.sh
 ```
 
-The network integration script starts and removes only its Compose project. It runs 1,000 direct and transparent requests at concurrency 50, validates nftables counters and telemetry, and tests direct access after emergency stop and a SIGSTOP-induced proxy hang. `./tests/observe.sh` separately sends real intercepted requests through Cyber-Jev in a bounded background observer; routing is never gated on its result.
+The network integration script starts and removes only its Compose project. Ubuntu 22.04 and 24.04 installation and systemd unit lifecycle were exercised in isolated systemd-nspawn root filesystems. Both passed start, stop, emergency-stop, and fail-open table cleanup; service runtime tests used private network namespaces and did not touch the host Aegis table. It runs 1,000 direct and transparent requests at concurrency 50, validates nftables counters and telemetry, and tests direct access after emergency stop and a SIGSTOP-induced proxy hang. `./tests/observe.sh` separately sends real intercepted requests through Cyber-Jev in a bounded background observer; routing is never gated on its result.
 
 ## Offline model benchmark
 

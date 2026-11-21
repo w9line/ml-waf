@@ -4,10 +4,10 @@ Recorded from a real `./tests/integration.sh` run in the isolated Docker bridge 
 
 | Path | Successful | RPS | p50 ms | p95 ms | p99 ms | elapsed s |
 |---|---:|---:|---:|---:|---:|---:|
-| Direct backend (`127.0.0.1:5000`) | 1000 | 2132.28 | 22.445 | 23.751 | 24.378 | 0.469 |
-| Transparent Aegis (lab client to `172.29.0.2:5000`) | 1000 | 416.25 | 116.767 | 147.653 | 151.065 | 2.402 |
+| Direct backend (`127.0.0.1:5000`) | 1000 | 2099.29 | 22.448 | 25.336 | 26.040 | 0.476 |
+| Transparent Aegis (lab client to `172.29.0.2:5000`) | 1000 | 438.64 | 109.088 | 138.471 | 140.099 | 2.280 |
 
-Post-load `docker stats --no-stream` point-in-time snapshot: Aegis container 4.69% CPU and 84.54 MiB; app container 0.31% CPU and 42.75 MiB. These are not peak or per-request averages. Client max RSS was 39,052 KiB direct and 37,988 KiB via Aegis; client user CPU was 0.358 s and 0.344 s, respectively.
+Post-load `docker stats --no-stream` point-in-time snapshot: Aegis container 4.70% CPU and 83.55 MiB; app container 0.11% CPU and 42.06 MiB. These are not peak or per-request averages. Client max RSS was 37,144 KiB direct and 39,644 KiB via Aegis; client user CPU was 0.365 s and 0.341 s, respectively.
 
 Verified by the same integration run:
 
