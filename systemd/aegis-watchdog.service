@@ -1,0 +1,9 @@
+[Unit]
+Description=Aegis fail-open watchdog
+
+[Service]
+Type=oneshot
+User=root
+Environment=AEGIS_CONFIG=/etc/aegis/config.yaml
+ExecStart=/opt/aegis/venv/bin/python -m aegis.watchdog
+WorkingDirectory=/opt/aegis/app

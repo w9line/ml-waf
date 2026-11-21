@@ -1,0 +1,6 @@
+onnxruntime>=1.17,<2
+numpy>=1.26,<3
+tokenizers>=0.20,<1
+transformers>=4.45,<6
+pyarrow>=17,<25
+psutil>=5.9,<8

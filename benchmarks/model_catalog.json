@@ -1,0 +1,41 @@
+{
+  "models": [
+    {
+      "name": "Fizcko/argus_sentinel",
+      "repo_id": "Fizcko/argus_sentinel",
+      "revision": "59848dd563bf2f8e7e0543f126894e00be6d5a02",
+      "license": "Apache-2.0",
+      "files": ["config.json", "model.onnx", "tokenizer.json", "thresholds.json"]
+    },
+    {
+      "name": "khasinski/ai-bouncer",
+      "repo_id": "khasinski/ai-bouncer",
+      "revision": "5b25bae8367498cd276606369b8186a7862bd60f",
+      "license": "MIT",
+      "files": ["config.json", "embedding_model.onnx", "labels.json", "tokenizer_config.json", "vectors.bin", "vocab.json"]
+    },
+    {
+      "name": "sdmlai/cyber-jev",
+      "repo_id": "sdmlai/cyber-jev",
+      "revision": "3fea0b1ec86ac3efd9d1352d5f1e4008cc0c17b7",
+      "license": "CC-BY-NC-4.0",
+      "files": ["calibration.model.int8.json", "config.json", "cyberjev_config.json", "model.int8.onnx", "one_pass.model.int8.json", "tokenizer.json", "tokenizer_config.json"]
+    }
+  ],
+  "datasets": {
+    "csic2010": {
+      "repo_id": "bridge4/CSIC2010_dataset_classification",
+      "revision": "562d5c1342f6e7b7d52af3a60dd56ca01cd1d062",
+      "test_file": "data/test-00000-of-00001.parquet",
+      "license_note": "CSIC research terms; Cyber-Jev source data includes CSIC2010"
+    },
+    "microdata": {
+      "repo_id": "neuroX3/MicroData",
+      "revision": "6428f0c213737478aee09300c9566741dc6ec13a",
+      "test_files": ["data/test/test-00000.parquet", "data/test/test-00001.parquet"],
+      "license": "MIT",
+      "allowed_sources": ["synthetic", "synthetic_heavy_control", "synthetic_heavy_polymorphic"],
+      "excluded_overlap_sources": ["ai-waf-dataset", "payloadsallthethings"]
+    }
+  }
+}

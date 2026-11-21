@@ -1,0 +1,6 @@
+services:
+  aegis:
+    environment:
+      AEGIS_CONFIG: /opt/aegis/lab/config-observe.yaml
+    volumes:
+      - ../models/weights:/opt/aegis/models/weights:ro

@@ -1,0 +1,40 @@
+services:
+  aegis:
+    build: {context: .., dockerfile: Dockerfile, network: host}
+    hostname: aegis
+    cap_add: [NET_ADMIN, NET_RAW]
+    networks:
+      lab: {ipv4_address: 172.29.0.2}
+    command: ["bash", "/opt/aegis/lab/router.sh"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import socket; s=socket.create_connection((\"127.0.0.1\",18080),2); s.close()"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+  app:
+    build: {context: .., dockerfile: Dockerfile, network: host}
+    network_mode: "service:aegis"
+    depends_on: {aegis: {condition: service_started}}
+    command: ["python", "/opt/aegis/lab/backend.py"]
+  ssh_https:
+    build: {context: .., dockerfile: Dockerfile, network: host}
+    network_mode: "service:aegis"
+    depends_on: [app]
+    command: ["bash", "/opt/aegis/lab/ssh_https.sh"]
+  late_http:
+    build: {context: .., dockerfile: Dockerfile, network: host}
+    network_mode: "service:aegis"
+    depends_on: {aegis: {condition: service_started}}
+    command: ["bash", "-lc", "sleep 8; python -m http.server 31337 --bind 0.0.0.0"]
+  client:
+    build: {context: .., dockerfile: Dockerfile, network: host}
+    networks: [lab]
+    depends_on: {aegis: {condition: service_healthy}}
+    command: ["sleep", "infinity"]
+networks:
+  lab:
+    name: aegis-lab-net
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.29.0.0/24

@@ -1,0 +1,16 @@
+[Unit]
+Description=Aegis listener discovery and nftables updater
+After=aegis-proxy.service
+Requires=aegis-proxy.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/opt/aegis/venv/bin/python -m aegis.controller --config /etc/aegis/config.yaml
+WorkingDirectory=/opt/aegis/app
+Restart=always
+RestartSec=2
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=multi-user.target

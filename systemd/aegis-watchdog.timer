@@ -1,0 +1,11 @@
+[Unit]
+Description=Check Aegis proxy health independently
+
+[Timer]
+OnBootSec=2s
+OnUnitActiveSec=2s
+AccuracySec=1s
+Unit=aegis-watchdog.service
+
+[Install]
+WantedBy=timers.target

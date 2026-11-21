@@ -1,0 +1,4 @@
+services:
+  aegis:
+    environment:
+      AEGIS_CONFIG: /opt/aegis/lab/config-docker-dnat.yaml

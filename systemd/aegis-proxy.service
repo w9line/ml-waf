@@ -1,0 +1,20 @@
+[Unit]
+Description=Aegis mitmproxy transparent HTTP proxy
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+RuntimeDirectory=aegis
+RuntimeDirectoryMode=0755
+User=root
+Environment=AEGIS_HEARTBEAT=/run/aegis/proxy.heartbeat
+Environment=AEGIS_PROXY_PORT=18080
+ExecStart=/opt/aegis/venv/bin/mitmdump --mode transparent --listen-host 0.0.0.0 --listen-port 18080 -s /opt/aegis/app/aegis/addon.py
+Restart=on-failure
+RestartSec=1
+ExecStartPost=/opt/aegis/venv/bin/python -m aegis.wait_proxy
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=multi-user.target

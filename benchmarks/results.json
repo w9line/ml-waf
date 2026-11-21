@@ -1,0 +1,344 @@
+{
+  "seed": 42,
+  "counts": {
+    "CSIC2010_available": 18500,
+    "MicroData_nonoverlap_source_available": 75413,
+    "exact_duplicate_rows_removed": 8544,
+    "cross_label_duplicates_removed": 0,
+    "CSIC2010_sample": 4000,
+    "MicroData_validation": 800,
+    "MicroData_test": 3200,
+    "curated_benign": 250,
+    "MicroData_sources": {
+      "synthetic": 2827,
+      "synthetic_heavy_control": 541,
+      "synthetic_heavy_polymorphic": 632
+    }
+  },
+  "results": [
+    {
+      "name": "Fizcko/argus_sentinel",
+      "status": "OK",
+      "revision": "59848dd563bf2f8e7e0543f126894e00be6d5a02",
+      "license": "Apache-2.0",
+      "size_bytes": 5234235,
+      "load_ms": 50.6237440276891,
+      "rss_before_mb": 39.20703125,
+      "rss_loaded_mb": 86.6796875,
+      "peak_rss_mb": 363.2109375,
+      "threshold_target_fpr": 0.01,
+      "threshold": 0.7404630780220032,
+      "threshold_mode": "validation_selected_score",
+      "validation": {
+        "tp": 14,
+        "fp": 3,
+        "tn": 397,
+        "fn": 386,
+        "precision": 0.8235294117647058,
+        "recall": 0.035,
+        "f1": 0.0671462829736211,
+        "fpr": 0.0075,
+        "fnr": 0.965
+      },
+      "test": {
+        "tp": 77,
+        "fp": 6,
+        "tn": 1594,
+        "fn": 1523,
+        "precision": 0.927710843373494,
+        "recall": 0.048125,
+        "f1": 0.09150326797385622,
+        "fpr": 0.00375,
+        "fnr": 0.951875
+      },
+      "csic2010": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 2000,
+        "fn": 2000,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "fnr": 1.0
+      },
+      "curated_benign": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 250,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "fnr": 0.0
+      },
+      "test_false_positive_categories": {
+        "technical_search": 6,
+        "curl_user_agent": 2
+      },
+      "csic_false_positive_categories": {},
+      "curated_false_positive_categories": {},
+      "latency": {
+        "validation": {
+          "p50": 0.3029,
+          "p95": 0.379,
+          "p99": 0.4624
+        },
+        "test_total": {
+          "p50": 0.3023,
+          "p95": 0.3778,
+          "p99": 0.4622
+        },
+        "test_preprocess": {
+          "p50": 0.0419,
+          "p95": 0.0895,
+          "p99": 0.1421
+        },
+        "test_inference": {
+          "p50": 0.259,
+          "p95": 0.2804,
+          "p99": 0.3697
+        },
+        "csic_total": {
+          "p50": 0.3049,
+          "p95": 0.4181,
+          "p99": 0.4481
+        },
+        "curated_total": {
+          "p50": 0.3139,
+          "p95": 0.3434,
+          "p99": 0.3532
+        }
+      },
+      "rps_single_thread": 3191.680062358918,
+      "test_elapsed_s": 1.0026067580329254,
+      "tested_counts": {
+        "validation": 800,
+        "test": 3200,
+        "csic2010": 4000,
+        "curated_benign": 250
+      }
+    },
+    {
+      "name": "khasinski/ai-bouncer",
+      "status": "OK",
+      "revision": "5b25bae8367498cd276606369b8186a7862bd60f",
+      "license": "MIT",
+      "size_bytes": 34370680,
+      "load_ms": 98.60429691616446,
+      "rss_before_mb": 39.4296875,
+      "rss_loaded_mb": 125.8984375,
+      "peak_rss_mb": 363.2109375,
+      "threshold_target_fpr": 0.01,
+      "threshold": 0.5,
+      "threshold_mode": "native_categorical_label",
+      "validation": {
+        "tp": 387,
+        "fp": 240,
+        "tn": 160,
+        "fn": 13,
+        "precision": 0.6172248803827751,
+        "recall": 0.9675,
+        "f1": 0.75365141187926,
+        "fpr": 0.6,
+        "fnr": 0.0325
+      },
+      "test": {
+        "tp": 1563,
+        "fp": 913,
+        "tn": 687,
+        "fn": 37,
+        "precision": 0.6312600969305331,
+        "recall": 0.976875,
+        "f1": 0.7669283611383709,
+        "fpr": 0.570625,
+        "fnr": 0.023125
+      },
+      "csic2010": {
+        "tp": 1981,
+        "fp": 1945,
+        "tn": 55,
+        "fn": 19,
+        "precision": 0.5045848191543556,
+        "recall": 0.9905,
+        "f1": 0.6685791427607155,
+        "fpr": 0.9725,
+        "fnr": 0.0095
+      },
+      "curated_benign": {
+        "tp": 0,
+        "fp": 216,
+        "tn": 34,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.864,
+        "fnr": 0.0
+      },
+      "test_false_positive_categories": {
+        "curl_user_agent": 254,
+        "technical_search": 913
+      },
+      "csic_false_positive_categories": {
+        "technical_search": 1945,
+        "csic2010_webshop": 1945
+      },
+      "curated_false_positive_categories": {
+        "curl_user_agent": 50,
+        "python_urllib_user_agent": 50,
+        "unicode_search": 50,
+        "technical_search": 50,
+        "json_api": 16
+      },
+      "latency": {
+        "validation": {
+          "p50": 0.4504,
+          "p95": 0.6154,
+          "p99": 0.7274
+        },
+        "test_total": {
+          "p50": 0.4529,
+          "p95": 0.6678,
+          "p99": 0.8693
+        },
+        "test_preprocess": {
+          "p50": 0.1588,
+          "p95": 0.2547,
+          "p99": 0.3294
+        },
+        "test_inference": {
+          "p50": 0.292,
+          "p95": 0.4215,
+          "p99": 0.5424
+        },
+        "csic_total": {
+          "p50": 0.4686,
+          "p95": 0.7943,
+          "p99": 0.8462
+        },
+        "curated_total": {
+          "p50": 0.3909,
+          "p95": 0.5423,
+          "p99": 0.6111
+        }
+      },
+      "rps_single_thread": 2135.255555730452,
+      "test_elapsed_s": 1.4986496540950611,
+      "tested_counts": {
+        "validation": 800,
+        "test": 3200,
+        "csic2010": 4000,
+        "curated_benign": 250
+      }
+    },
+    {
+      "name": "sdmlai/cyber-jev",
+      "status": "OK",
+      "revision": "3fea0b1ec86ac3efd9d1352d5f1e4008cc0c17b7",
+      "license": "CC-BY-NC-4.0",
+      "size_bytes": 23729259,
+      "load_ms": 770.2135699801147,
+      "rss_before_mb": 39.375,
+      "rss_loaded_mb": 177.5234375,
+      "peak_rss_mb": 363.2109375,
+      "threshold_target_fpr": 0.01,
+      "threshold": 0.962627218983115,
+      "threshold_mode": "validation_selected_score",
+      "validation": {
+        "tp": 358,
+        "fp": 3,
+        "tn": 397,
+        "fn": 42,
+        "precision": 0.9916897506925207,
+        "recall": 0.895,
+        "f1": 0.9408672798948752,
+        "fpr": 0.0075,
+        "fnr": 0.105
+      },
+      "test": {
+        "tp": 1470,
+        "fp": 20,
+        "tn": 1580,
+        "fn": 130,
+        "precision": 0.9865771812080537,
+        "recall": 0.91875,
+        "f1": 0.9514563106796117,
+        "fpr": 0.0125,
+        "fnr": 0.08125
+      },
+      "csic2010": {
+        "tp": 1165,
+        "fp": 141,
+        "tn": 1859,
+        "fn": 835,
+        "precision": 0.8920367534456355,
+        "recall": 0.5825,
+        "f1": 0.704779189352692,
+        "fpr": 0.0705,
+        "fnr": 0.4175
+      },
+      "curated_benign": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 250,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "fnr": 0.0
+      },
+      "test_false_positive_categories": {
+        "curl_user_agent": 10,
+        "technical_search": 20
+      },
+      "csic_false_positive_categories": {
+        "technical_search": 141,
+        "csic2010_webshop": 141
+      },
+      "curated_false_positive_categories": {},
+      "latency": {
+        "validation": {
+          "p50": 34.9008,
+          "p95": 41.479,
+          "p99": 76.5385
+        },
+        "test_total": {
+          "p50": 34.5148,
+          "p95": 38.3897,
+          "p99": 75.9044
+        },
+        "test_preprocess": {
+          "p50": 0.4323,
+          "p95": 0.5579,
+          "p99": 0.9779
+        },
+        "test_inference": {
+          "p50": 34.0715,
+          "p95": 37.8774,
+          "p99": 74.892
+        },
+        "csic_total": {
+          "p50": 34.5388,
+          "p95": 37.7025,
+          "p99": 76.8308
+        },
+        "curated_total": {
+          "p50": 34.2897,
+          "p95": 37.1406,
+          "p99": 38.648
+        }
+      },
+      "rps_single_thread": 28.009379600339823,
+      "test_elapsed_s": 114.24744302302133,
+      "tested_counts": {
+        "validation": 800,
+        "test": 3200,
+        "csic2010": 4000,
+        "curated_benign": 250
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+proxy:
+  listen_host: 0.0.0.0
+  listen_port: 18080
+discovery:
+  docker_published_ports: false
+  interval_seconds: 2
+  probe_timeout_seconds: 0.5
+  excluded_ports: [22, 2222, 443, 8443, 5432, 3306, 6379, 27017, 18080]
+  include_ports: []
+nftables:
+  table: aegis
+  family: inet
+detector:
+  mode: observe-only
+  model: sdmlai/cyber-jev
+  model_path: /opt/aegis/models/weights/sdmlai--cyber-jev/3fea0b1ec86ac3efd9d1352d5f1e4008cc0c17b7
+  threshold: 0.962627218983115
+  max_pending: 64
