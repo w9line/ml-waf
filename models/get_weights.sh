@@ -9,7 +9,7 @@ case "$MODEL" in
   sdmlai/cyber-jev) ASSET=cyber_jev; FOLDER=sdmlai--cyber-jev; REV=3fea0b1ec86ac3efd9d1352d5f1e4008cc0c17b7 ;;
   *) echo "Usage: $0 {Fizcko/argus_sentinel|khasinski/ai-bouncer|sdmlai/cyber-jev}" >&2; exit 2 ;;
 esac
-RELEASE=https://github.com/w9line/ml-waf/releases/download/v0.1.0
+RELEASE=https://github.com/w9line/ml-waf/releases/download/v0.1.1
 for tool in curl sha256sum tar; do command -v "$tool" >/dev/null || { echo "Missing required tool: $tool" >&2; exit 1; }; done
 TMP_BASE=${TMPDIR:-$HOME/.cache}
 mkdir -p "$TMP_BASE"
