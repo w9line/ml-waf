@@ -27,4 +27,5 @@ else
 fi
 for unit in aegis-proxy.service aegis-discovery.service aegis-watchdog.service aegis-watchdog.timer; do install -m 0644 "$ROOT/systemd/$unit" /etc/systemd/system/; done
 systemctl daemon-reload
+systemctl enable aegis-proxy.service aegis-discovery.service aegis-watchdog.timer
 echo "Installed Aegis dependencies and systemd units. Review /etc/aegis/config.yaml, then run ./start.sh."
