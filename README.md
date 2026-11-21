@@ -21,6 +21,21 @@ sudo ./emergency-stop.sh
 
 Review `config.yaml` before first run. The installer copies it to `/etc/aegis/config.yaml`. `start.sh` starts installed units; `run.sh` installs when the virtualenv is absent. Proxy port is 18080. If occupied, change both the config and `systemd/aegis-proxy.service` before installing.
 
+## Observe-only model activation
+
+The default `config.yaml` is `detector.mode: allow-all`. To enable shadow scoring with the Cyber-Jev candidate, edit `/etc/aegis/config.yaml` before running `sudo ./run.sh`:
+
+```yaml
+detector:
+  mode: observe-only
+  model: sdmlai/cyber-jev
+  model_path: /opt/aegis/models/weights/sdmlai--cyber-jev/3fea0b1ec86ac3efd9d1352d5f1e4008cc0c17b7
+  threshold: 0.962627218983115
+  max_pending: 64
+```
+
+`run.sh` downloads only that pinned release archive when the configured weight file is missing, verifies its SHA-256 sidecar, then starts the services. Scores are written to telemetry asynchronously; a full queue drops observation records rather than delaying or blocking HTTP traffic. This candidate is not a safe block-mode winner. Cyber-Jev is CC-BY-NC-4.0 and must not be used commercially.
+
 ## Firewall and routing behavior
 
 - Only IPv4 TCP listeners that answer idempotent `HEAD /` are selected. Probes use `Host: aegis-probe.invalid`, `Connection: close`, and a short timeout. Ports in `excluded_ports` and the proxy port are never redirected.
