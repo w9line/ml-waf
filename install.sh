@@ -20,7 +20,11 @@ install -m 0644 "$ROOT/models/README.md" "$ROOT/models/ATTRIBUTION.md" /opt/aegi
 install -m 0755 "$ROOT/models/get_weights.sh" /opt/aegis/models/get_weights.sh
 /opt/aegis/venv/bin/python -m pip install --upgrade pip
 /opt/aegis/venv/bin/pip install "/opt/aegis/app[ml]"
-install -m 0640 "$ROOT/config.yaml" /etc/aegis/config.yaml
+if [[ ! -e /etc/aegis/config.yaml ]]; then
+  install -m 0640 "$ROOT/config.yaml" /etc/aegis/config.yaml
+else
+  echo "Preserving existing /etc/aegis/config.yaml"
+fi
 for unit in aegis-proxy.service aegis-discovery.service aegis-watchdog.service aegis-watchdog.timer; do install -m 0644 "$ROOT/systemd/$unit" /etc/systemd/system/; done
 systemctl daemon-reload
 echo "Installed Aegis dependencies and systemd units. Review /etc/aegis/config.yaml, then run ./start.sh."

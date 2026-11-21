@@ -23,7 +23,7 @@ Review `config.yaml` before first run. The installer copies it to `/etc/aegis/co
 
 ## Observe-only model activation
 
-The default `config.yaml` is `detector.mode: allow-all`. To enable shadow scoring with the Cyber-Jev candidate, edit `/etc/aegis/config.yaml` before running `sudo ./run.sh`:
+The default `config.yaml` is `detector.mode: allow-all`. Run `sudo ./run.sh` once to install/start Aegis; then edit `/etc/aegis/config.yaml` to enable shadow scoring with the Cyber-Jev candidate and run `sudo ./run.sh` again. Re-running the installer preserves an existing config:
 
 ```yaml
 detector:
